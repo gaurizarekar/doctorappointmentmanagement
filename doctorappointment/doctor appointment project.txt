@@ -1,0 +1,14 @@
+create database hospital;
+
+use hospital;
+
+create table doctor(doct_id int primary key,dname text,dadd text,dcontact bigint,gender text,qualification text,dfees int);
+
+create table patient(pid int primary key,pname text,padd text,pcontact bigint);
+
+create table appointment(apid int primary key,adate date,atime time,doct_id int references doctor(doct_id) on delete cascade,pid int references patient(pid) on delete cascade);
+
+create table admin(a_id int primary key,aname text,password varchar(20));
+
+
+drop table doctor;
